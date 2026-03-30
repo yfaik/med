@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noor Fragrance Maroc</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f8f5f1;
+      color: #1f1f1f;
+      line-height: 1.6;
+    }
+    .container { width: min(1200px, 92%); margin: auto; }
+    header {
+      background: linear-gradient(135deg, #111, #2a2a2a);
+      color: white;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .logo span { color: #d4a373; }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      opacity: 0.92;
+    }
+    .hero {
+      padding: 80px 0 50px;
+      background: radial-gradient(circle at top left, #fff4e8, #f8f5f1 55%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      margin-bottom: 24px;
+      color: #444;
+      max-width: 650px;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .badge {
+      background: white;
+      border: 1px solid #eee;
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+    }
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #25d366;
+      color: white;
+      box-shadow: 0 10px 22px rgba(37, 211, 102, 0.28);
+    }
+    .btn-secondary {
+      background: #111;
+      color: white;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .hero-card {
+      background: white;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.08);
+    }
+    .hero-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+      background: #eee;
+    }
+    section { padding: 60px 0; }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 32px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    .card {
+      background: white;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 14px 30px rgba(0,0,0,0.07);
+      transition: 0.25s ease;
+    }
+    .card:hover { transform: translateY(-6px); }
+    .card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+      background: #f1f1f1;
+    }
+    .card-content { padding: 18px; }
+    .card-content h3 { margin-bottom: 8px; font-size: 1.08rem; }
+    .price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #b26b2b;
+      margin: 10px 0 14px;
+    }
+    .mini {
+      font-size: 0.92rem;
+      color: #666;
+      margin-bottom: 14px;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .feature {
+      background: white;
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+    }
+    .feature h3 { margin-bottom: 10px; }
+    .order-box {
+      background: linear-gradient(135deg, #111, #2a2a2a);
+      color: white;
+      border-radius: 28px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+    }
+    .order-box form {
+      display: grid;
+      gap: 14px;
+    }
+    .order-box input, .order-box select, .order-box textarea {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+    }
+    .order-box textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    footer {
+      background: #111;
+      color: #ddd;
+      padding: 26px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+    .notice {
+      background: #fff;
+      border-left: 4px solid #25d366;
+      padding: 14px 16px;
+      border-radius: 14px;
+      color: #333;
+      margin-top: 16px;
+    }
+    @media (max-width: 980px) {
+      .hero-grid, .order-box { grid-template-columns: 1fr; }
+      .products { grid-template-columns: repeat(2, 1fr); }
+      .features { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .products { grid-template-columns: 1fr; }
+      .hero { padding-top: 50px; }
+      .hero-card img { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Noor <span>Fragrance</span> Maroc</div>
+        <div class="nav-links">
+          <a href="#produits">Produits</a>
+          <a href="#avantages">Avantages</a>
+          <a href="#commande">Commander</a>
+          <a href="https://wa.me/212600000000" target="_blank">WhatsApp</a>
+        </div>
+      </nav>
+    </div>
+  </header>  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>Site parfum au Maroc b commande direct sur WhatsApp</h1>
+        <p>
+          Had template m9awed bach dir store dial parfum b style moderne, bla paiement en ligne.
+          Client kaykhtar produit, kay3amer les infos, w commande katsift direct l WhatsApp dyalk.
+        </p>
+        <div class="hero-badges">
+          <div class="badge">Paiement à la livraison</div>
+          <div class="badge">Commande WhatsApp</div>
+          <div class="badge">Livraison partout au Maroc</div>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#commande">Commander maintenant</a>
+          <a class="btn btn-secondary" href="#produits">Voir les parfums</a>
+        </div>
+        <div class="notice">
+          Bdel numéro <strong>212600000000</strong> b numéro dyalk f code باش الطلبات يمشيو ليك نيشان فـ WhatsApp.
+        </div>
+      </div>
+      <div class="hero-card">
+        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1200&q=80" alt="Parfum luxe" />
+      </div>
+    </div>
+  </section>  <section id="produits">
+    <div class="container">
+      <h2 class="section-title">Produits populaires</h2>
+      <p class="section-subtitle">T9dar tbdel had les produits b les parfums dyalk nta.</p>
+      <div class="products">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80" alt="Parfum 1" />
+          <div class="card-content">
+            <h3>Royal Oud</h3>
+            <p class="mini">Parfum boisé intense - Homme</p>
+            <div class="price">349 DH</div>
+            <button class="btn btn-primary" onclick="quickOrder('Royal Oud', '349 DH')">Commander sur WhatsApp</button>
+          </div>
+        </div><div class="card">
+      <img src="https://images.unsplash.com/photo-1619994403073-2cec2f2a2b2c?auto=format&fit=crop&w=800&q=80" alt="Parfum 2" />
+      <div class="card-content">
+        <h3>Velvet Rose</h3>
+        <p class="mini">Parfum floral doux - Femme</p>
+        <div class="price">299 DH</div>
+        <button class="btn btn-primary" onclick="quickOrder('Velvet Rose', '299 DH')">Commander sur WhatsApp</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59db9?auto=format&fit=crop&w=800&q=80" alt="Parfum 3" />
+      <div class="card-content">
+        <h3>Amber Night</h3>
+        <p class="mini">Parfum oriental élégant - Mixte</p>
+        <div class="price">379 DH</div>
+        <button class="btn btn-primary" onclick="quickOrder('Amber Night', '379 DH')">Commander sur WhatsApp</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=800&q=80" alt="Parfum 4" />
+      <div class="card-content">
+        <h3>Fresh Musk</h3>
+        <p class="mini">Parfum clean et frais - Homme</p>
+        <div class="price">269 DH</div>
+        <button class="btn btn-primary" onclick="quickOrder('Fresh Musk', '269 DH')">Commander sur WhatsApp</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </section>  <section id="avantages">
+    <div class="container">
+      <h2 class="section-title">3lach had site kaynfa3k</h2>
+      <p class="section-subtitle">Bsimple, سريع, ومناسب للسوق المغربي.</p>
+      <div class="features">
+        <div class="feature">
+          <h3>0% paiement en ligne</h3>
+          <p>Client kaycommandi ghir b WhatsApp w kaykheless mlli twselo commande.</p>
+        </div>
+        <div class="feature">
+          <h3>Facile à modifier</h3>
+          <p>Kolchi f fichier wa7ed HTML. T9dar t7ellou f VS Code w tbdel produits, tsawer, athmana, w numéro.</p>
+        </div>
+        <div class="feature">
+          <h3>Mobile friendly</h3>
+          <p>Kaykhdem mezyan f téléphone, hit bzaf dyal clients kaydkhlo men Instagram w WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>  <section id="commande">
+    <div class="container">
+      <div class="order-box">
+        <div>
+          <h2 style="font-size:2rem; margin-bottom:12px;">Commande directe</h2>
+          <p style="opacity:0.9; margin-bottom:18px;">
+            3ammer had formulaire, w mlli tklik 3la bouton, ghadi t7ell lik WhatsApp b message wajed فيه
+            smit produit, lprix, smiya dyal client, téléphone, lmdina, w l3onwan.
+          </p>
+          <ul style="padding-left:18px; opacity:0.92;">
+            <li>Paiement à la livraison</li>
+            <li>Commande rapide</li>
+            <li>Ma kaynach cart compliquée</li>
+          </ul>
+        </div><form onsubmit="sendOrder(event)">
+      <input type="text" id="name" placeholder="Smitk كاملة" required />
+      <input type="tel" id="phone" placeholder="Numéro de téléphone" required />
+      <select id="product" required>
+        <option value="">Choisir un parfum</option>
+        <option value="Royal Oud - 349 DH">Royal Oud - 349 DH</option>
+        <option value="Velvet Rose - 299 DH">Velvet Rose - 299 DH</option>
+        <option value="Amber Night - 379 DH">Amber Night - 379 DH</option>
+        <option value="Fresh Musk - 269 DH">Fresh Musk - 269 DH</option>
+      </select>
+      <input type="text" id="city" placeholder="Ville" required />
+      <textarea id="address" placeholder="Adresse complète" required></textarea>
+      <button type="submit" class="btn btn-primary">Envoyer la commande sur WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+  </section>  <footer>
+    <div class="container">
+      <p>© 2026 Noor Fragrance Maroc - Template e-commerce WhatsApp</p>
+    </div>
+  </footer>  <script>
+    const whatsappNumber = "212600000000"; // BDEL HADA B NUMÉRO DYALK
+
+    function quickOrder(productName, price) {
+      const message = `Salam, bghit ncommandi:%0A- Produit: ${productName}%0A- Prix: ${price}%0A%0AAfak jawbni bach nkemel lcommande.`;
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    }
+
+    function sendOrder(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const product = document.getElementById('product').value.trim();
+      const city = document.getElementById('city').value.trim();
+      const address = document.getElementById('address').value.trim();
+
+      const text = `Salam, 3ndi commande jdida:%0A%0A` +
+        `- Smiya: ${name}%0A` +
+        `- Téléphone: ${phone}%0A` +
+        `- Produit: ${product}%0A` +
+        `- Ville: ${city}%0A` +
+        `- Adresse: ${address}%0A%0A` +
+        `- Mode de paiement: Paiement à la livraison`;
+
+      window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+    }
+  </script></body>
+</html>
